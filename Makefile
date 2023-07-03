@@ -1,6 +1,6 @@
 NAME = fdf
 LIBFT = libft
-SOURCES = main.c ft_atoi_base.c
+SOURCES = main.c #ft_atoi_base.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
