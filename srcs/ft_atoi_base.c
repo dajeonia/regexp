@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:18:29 by dajeon            #+#    #+#             */
-/*   Updated: 2023/07/03 12:28:01 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/03 13:02:33 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static long	ft_strtol_base(const char *nptr, const char *base)
 	radix = ft_strlen(base);
 	if (radix < 2)
 		return (-1);
-	while (*nptr == 32 || (9 <= *nptr && *nptr <= 13))
+	while (ft_issipace(*nptr))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 	{
