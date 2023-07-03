@@ -13,7 +13,7 @@
 #include "libft.h"
 
 static long	ft_make_number(long nbr, int new, int radix);
-static int	ft_ctoi_base(int c, int sign, const char *base);
+static int	ft_ctoi_base(int c, const char *base);
 static int	ft_stridx(char const *s, char c);
 static long	ft_strtol_base(const char *nptr, const char *base);
 
@@ -29,12 +29,12 @@ static long	ft_strtol_base(const char *nptr, const char *base)
 	int		new;
 	int		radix;
 
-	sign = 1;
 	radix = ft_strlen(base);
 	if (radix < 2)
 		return (-1);
-	while (ft_issipace(*nptr))
+	while (ft_isspace(*nptr))
 		nptr++;
+	sign = 1;
 	if (*nptr == '-' || *nptr == '+')
 	{
 		if (*nptr == '-')
@@ -44,8 +44,8 @@ static long	ft_strtol_base(const char *nptr, const char *base)
 	nbr = 0;
 	while (ft_isin(*nptr, base))
 	{
-		new = ft_ctoi_base(*nptr, sign, base);
-		nbr = ft_make_number(nbr, new, radix);
+		new = ft_ctoi_base(*nptr, base);
+		nbr = ft_make_number(nbr, sign * new, radix);
 		nptr++;
 	}
 	return (nbr);
@@ -68,9 +68,9 @@ static long	ft_make_number(long nbr, int new, int radix)
 		return (0);
 }
 
-static int	ft_ctoi_base(int c, int sign, const char *base)
+static int	ft_ctoi_base(int c, const char *base)
 {
-	return (sign * (ft_stridx(base, c)));
+	return (ft_stridx(base, c));
 }
 
 static int	ft_stridx(char const *s, char c)

@@ -11,7 +11,7 @@ OBJ_DIR = objs
 LIBFLAGS = -L libft -l ft
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I ../libft/incs
+CFLAGS = -Wall -Werror -Wextra -I libft/incs
 
 all : $(NAME)
 
