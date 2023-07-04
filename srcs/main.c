@@ -87,3 +87,22 @@ int	ft_duplen(const char *s, const char *set)
 	}
 	return (len);
 }
+
+int	ft_parse_len(const char *s, const char *set)
+{
+	
+}
+
+int	ft_pair(const char *s, const char *set)
+{
+	char	a[11] = "({[\"')}]\"'";
+	char	pair;
+	int		len;
+	int		ctos;
+
+	pair = a[ft_stridx(a, *s)];
+	ctos = ft_ctos(pair);
+	len = ft_toklen(s, set);
+	free(ctos);
+	return (len);
+}
