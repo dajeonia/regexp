@@ -8,82 +8,36 @@ char	*ft_strtok(const char *s, const char *set);
 
 int	main(void)
 {
-	// char	*test = ft_strdup("{1, 5}");
-	char	*test = ft_strdup("abcde fdsaf sg sadg sadg sa ");
-	int		i;
-	int		n;
+	char	*test1;
+	char	*test2;
 
-	i = 0;
-	n = 9;
-	while (i < n)
-	{
-		printf("test[%d]: %s\n", i, ft_strntok(test, " ", i));
-		i++;
-	}
+	test1 = ft_strdup("51234");
+	test2 = ft_strdup("0,0x00ff00ff");
 }
 
-char	*ft_strntok(const char *s, const char *set, int n)
+int	pattern(const char *s, t_list *lst)
 {
 	int	i;
-	int	j;
-	
+
 	i = 0;
-	j = 0;
-	while (i < n)
+	while (lst)
 	{
-		j += ft_duplen(&s[j], set);
-		j += ft_toklen(&s[j], set);
-		i++;
+		ft_check(s[i]);
+		i += lst->content->len;
+		lst = lst->next;
 	}
-	return (ft_strtok(&s[j], set));
 }
 
-char	*ft_strtok(const char *s, const char *set)
+t_ptn	*ft_ptnnew(char *set, int min, int max)
 {
-	int		start;
-	int		end;
-	char	*tok;
+	t_ptn	*new;
 
-	start = ft_duplen(s, set);
-	end = start + ft_toklen(&s[start], set);
-	if (end - start == 0)
+	new = (t_ptn *)malloc(sizeof(t_ptn));
+	if (new == NULL)
 		return (NULL);
-	tok = ft_substr(s, start, end);
-	return (tok);
-}
-
-int	ft_toklen(const char *s, const char *set)
-{
-	int	len;
-
-	len = 0;
-	while (*s)
-	{
-		if (ft_isin(*s, set) == 0)
-		{
-			s++;
-			len++;
-		}
-		else
-			break ;
-	}
-	return (len);
-}
-
-int	ft_duplen(const char *s, const char *set)
-{
-	int	len;
-
-	len = 0;
-	while (*s)
-	{
-		if (ft_isin(*s, set))
-		{
-			s++;
-			len++;
-		}
-		else
-			break ;
-	}
-	return (len);
+	new->set = set;
+	new->min = min;
+	new->max = max;
+	new->len = 0;
+	return (new);
 }

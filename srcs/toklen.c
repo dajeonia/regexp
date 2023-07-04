@@ -13,9 +13,9 @@ int	ft_toklen(const char *s, const char *set)
 			len++;
 		}
 		else
-			break ;
+			return (len);
 	}
-	return (len);
+	return (-1);
 }
 
 int	ft_duplen(const char *s, const char *set)
