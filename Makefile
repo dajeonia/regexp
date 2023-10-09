@@ -1,17 +1,21 @@
-NAME = fdf
+NAME = regexp
 LIBFT = libft
-SOURCES = main.c #ft_atoi_base.c
-
-OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
-SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
-LIBS = $(addprefix $(LIBFT)/, $(LIBFT).a)
+SOURCES = main.c ft_atof.c
+INCLUDES = re
 
 SRC_DIR = srcs
 OBJ_DIR = objs
+INC_DIR = srcs
+
+OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
+SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
+SRCS = $(addprefix $(INC_DIR)/, $(INCLUDES))
+LIBS = $(addprefix $(LIBFT)/, $(LIBFT).a)
+
 LIBFLAGS = -L libft -l ft
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I libft/incs
+CFLAGS = -Wall -Werror -Wextra -I $(INC_DIR)
 
 all : $(NAME)
 

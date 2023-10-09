@@ -1,62 +1,27 @@
-#include "libft.h"
+#include "regexp.h"
+#include <stdlib.h>
 #include <stdio.h>
 
-int		ft_toklen(const char *s, const char *set);
-int		ft_duplen(const char *s, const char *set);
-char	*ft_strntok(const char *s, const char *set, int n);
-char	*ft_strtok(const char *s, const char *set);
+double	ft_atof(const char *nptr);
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	char	*test1;
-	char	*test2;
+	int		i;
+	char	**split;
 
-	test1 = ft_strdup("51234");
-	test2 = ft_strdup("0,0x00ff00ff");
-}
-
-int	pattern(const char *s, t_list *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
+	if (argc != 2)
 	{
-		ft_check(s[i]);
-		i += lst->content->len;
-		lst = lst->next;
+		ft_putendl_fd("Error", 2);
+		return (1);
 	}
-}
-
-t_ptn	*ft_ptnnew(char *set, int min, int max)
-{
-	t_ptn	*new;
-
-	new = (t_ptn *)malloc(sizeof(t_ptn));
-	if (new == NULL)
-		return (NULL);
-	new->set = set;
-	new->min = min;
-	new->max = max;
-	new->len = 0;
-	return (new);
-}
-
-int	ft_parse_len(const char *s, const char *set)
-{
-	
-}
-
-int	ft_pair(const char *s, const char *set)
-{
-	char	a[11] = "({[\"')}]\"'";
-	char	pair;
-	int		len;
-	int		ctos;
-
-	pair = a[ft_stridx(a, *s)];
-	ctos = ft_ctos(pair);
-	len = ft_toklen(s, set);
-	free(ctos);
-	return (len);
+	split = ft_split(argv[1], ' ');
+	i = 0;
+	while (1)
+	{
+		printf("split[%d]: %s\n", i, split[i]);
+		if (!split[i])
+			break ;
+		i++;
+	}
+	return (0);
 }
