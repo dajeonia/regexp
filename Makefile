@@ -3,6 +3,7 @@ LIBFT = libft
 SOURCES = main.c \
 		  ft_atof.c \
 		  parse_integer.c \
+		  parse_float.c \
 		  utils.c
 
 
