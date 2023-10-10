@@ -8,7 +8,7 @@ int		ft_range(int nbr, int min, int max);
 
 #include <stdio.h>
 
-int	ft_print_rgb(int rgb[3])
+int	ft_rgb_print(int rgb[3])
 {
 	int	i;
 

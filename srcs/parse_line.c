@@ -1,4 +1,4 @@
-t_rt	*ft_parse_line(const char *line)
+t_rt	*ft_parse_line(t_vars *vars, const char *line)
 {
 	char	*split;
 	int		i;
@@ -9,12 +9,19 @@ t_rt	*ft_parse_line(const char *line)
 	if (ft_strcmp(split[0], "rt"))
 }
 
-int	ft_line_check(const char *line)
+int	ft_check_type(t_vars *vars, const char *split)
 {
-	if (ft_strncmp(split[0], "C", 1))
-		;
-	else if (ft_strncmp(split[0], "R", 1))
-		;
-	else if (ft_strncmp(
+	int	ret;
 
+	if (ft_strlower(type))
+		ret = ft_envset(vars, );
+
+	if (ft_strncmp(type, "C", 2))
+		;
+	else if (ft_strncmp(type, "R", 2))
+		;
+	else if (ft_strncmp(type, "L", 2))
+		;
 }
+
+

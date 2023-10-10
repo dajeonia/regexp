@@ -3,6 +3,13 @@
 
 # include "../libft/incs/libft.h"
 
+typedef struct s_env
+{
+	t_ambient	amb;
+	t_light		light;
+	t_camera	camera;
+}	t_env;
+
 typedef struct s_ambient
 {
 	double	ratio;

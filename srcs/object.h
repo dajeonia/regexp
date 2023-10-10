@@ -3,6 +3,8 @@
 
 # include "../libft/incs/libft.h"
 
+typedef t_list	t_obj;
+
 typedef struct s_plane
 {
 	double	point[3];

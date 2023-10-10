@@ -4,7 +4,7 @@
 
 double	ft_atof(const char *nptr);
 int		ft_parse_rgb(int rgb[3], const char *nptr, int min, int max);
-int		ft_print_rgb(int rgb[3]);
+int		ft_rgb_print(int rgb[3]);
 
 int	main(int argc, char **argv)
 {
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	ft_print_spt(const char **split)
+int	ft_spt_print(const char **split)
 {
 	int	i;
 
