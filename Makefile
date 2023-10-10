@@ -1,7 +1,12 @@
 NAME = regexp
 LIBFT = libft
-SOURCES = main.c ft_atof.c
-INCLUDES = re
+SOURCES = main.c \
+		  ft_atof.c \
+		  parse_integer.c \
+		  utils.c
+
+
+INCLUDES = regexp.h
 
 SRC_DIR = srcs
 OBJ_DIR = objs
